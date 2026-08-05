@@ -1,0 +1,581 @@
+<html lang="af" data-theme="auto">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Righardt se Verrassingskuier | 10 Oktober 2026</title>
+    <link rel="icon" sizes="32x32" href="favicon.jpg">
+    <link rel="icon" sizes="16x16" href="favicon.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.jpg">
+    <link rel="icon" sizes="192x192" href="favicon.jpg">
+    <link rel="icon" sizes="512x512" href="favicon.jpg">
+
+    <style>
+        :root {
+            --bg-deep: #2b2621;
+            --surface-glass: rgba(53, 44, 38, 0.85);
+            --surface-solid: #3d332b;
+            --earth-gold: #d4a373;
+            --earth-light: #faedcd;
+            --earth-orange: #bc6c25;
+            --text-main: #fefae0;
+            --text-muted: #dda15e;
+            --accent-rust: #9b3922;
+        }
+
+        * {
+            box-sizing: border-box;
+            letter-spacing: 0.03em;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--text-main);
+            background: linear-gradient(135deg, #281e17 0%, #3a2e25 50%, #1f2822 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .overlay {
+            background-color: rgba(30, 24, 20, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 50px 20px;
+            min-height: 100vh;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 0;
+            font-weight: 600;
+            color: var(--earth-gold);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            margin-bottom: 8px;
+            border-bottom: 2px dashed rgba(212, 163, 115, 0.3);
+            padding-bottom: 20px;
+            max-width: 722px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            max-width: 760px;
+            margin: 35px auto;
+            background: var(--surface-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--earth-orange), var(--earth-gold), var(--earth-orange));
+            border-radius: 16px 16px 0 0;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 16px;
+            color: #f4ebd0;
+            margin-bottom: 20px;
+        }
+
+        p strong {
+            color: var(--earth-light);
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            color: #2b2621;
+            background: linear-gradient(135deg, var(--earth-light), var(--earth-gold));
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.25);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, var(--earth-gold), var(--earth-orange));
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: transparent;
+            color: var(--earth-gold);
+            border: 2px solid rgba(212, 163, 115, 0.5);
+            border-radius: 50px;
+        }
+
+        .btn-whatsapp:hover {
+            background: rgba(212, 163, 115, 0.15);
+            color: var(--earth-light);
+            border-color: var(--earth-gold);
+        }
+
+        /* Confidential Banner */
+        .secret-banner {
+            background: rgba(188, 108, 37, 0.15);
+            border-left: 4px solid var(--earth-orange);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0;
+        }
+
+        .secret-banner p {
+            color: #ffecd0;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Map */
+        iframe {
+            width: 100%;
+            height: 320px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Audio Player */
+        audio {
+            display: block;
+            margin: 25px auto;
+            max-width: 280px;
+            border-radius: 30px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px;
+            background-color: #1a1512;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        /* Dropdown Selector */
+        .dropdown-container {
+            text-align: center;
+            margin-bottom: 40px;
+            background: var(--surface-glass);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-container label {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 12px;
+            color: var(--earth-gold);
+            font-weight: 600;
+        }
+
+        .dropdown-container select {
+            font-size: 15px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 163, 115, 0.4);
+            width: 100%;
+            max-width: 380px;
+            background-color: #241d18;
+            color: var(--text-main);
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .dropdown-container select:focus {
+            border-color: var(--earth-gold);
+        }
+
+        /* Interactive Secret Element */
+        #secretMessage {
+            display: none;
+            background: rgba(43, 35, 30, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            color: var(--earth-light);
+            text-align: center;
+            margin-top: 20px;
+            border: 1px solid rgba(212, 163, 115, 0.3);
+        }
+
+        #secretTrigger {
+            color: var(--earth-gold);
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 1px dotted var(--earth-gold);
+            font-weight: 600;
+        }
+
+        /* Countdown */
+        .countdown-box {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .countdown-box div {
+            background: rgba(40, 32, 27, 0.9);
+            border: 1px solid rgba(212, 163, 115, 0.25);
+            padding: 15px 18px;
+            border-radius: 10px;
+            min-width: 85px;
+            text-align: center;
+        }
+
+        .countdown-box strong {
+            font-size: 22px;
+            color: var(--earth-gold);
+            display: block;
+        }
+
+        .countdown-box span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .overlay { padding: 25px 15px; }
+            h1 { font-size: 1.7rem; }
+            .card { margin: 20px auto; padding: 25px 20px; }
+            button { width: 100%; border-radius: 10px; }
+            .btn-whatsapp { border-radius: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+  <div class="overlay">
+    
+    <!-- Dropdown Selector -->
+    <div class="dropdown-container">
+      <label for="nameSelect">Kies jou naam vir 'n persoonlike uitnodiging</label>
+      <select id="nameSelect" onchange="personalize()">
+        <option value="">-- Kies jou naam hier --</option>
+        <option value="Tihard">Tihard Strydom</option>
+        <option value="Armand">Armand J.v. Rensburg</option>
+        <option value="Hendré">Hendré Els</option>
+        <option value="Germari">Germari Badenhorst</option>
+        <option value="Elaine">Elaine Joubert</option>
+        <option value="Wencke">Wencke Peters</option>
+        <option value="Franco">Franco Cilliers</option>
+        <option value="Stef">Stef Scoeman</option>
+        <option value="Marlu">Marlu du Plooy</option>
+		<option value="Lanike">Lanike Lensley</option>
+      </select>
+    </div>
+
+    <!-- Main Heading -->
+    <h1 id="mainHeading">🎉Righardt se Surprise Verjaarsdagkuier!🎉</h1>
+
+    <!-- Countdown Timer -->
+    <div id="countdown" class="countdown-box"></div>
+
+    <!-- Background Audio -->
+    <audio id="bgmusic" loop controls>
+      <source src="Bloedbroers.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Details Card -->
+    <div class="card">
+      <h2 style="text-align: center; color: var(--earth-gold); margin-bottom: 25px;">🎉 Righardt se Surprise Verjaarsdagkuier! 🎉</h2>
+      
+      <p>Righardt verjaar op 10 Oktober en ons wil sy dag op 'n spesiale manier vier met 'n verrassingskuier op die plaas saam met sy naaste vriende. Dit gaan 'n dag wees vol lekker kuier, goeie geselskap, baie lag en natuurlik 'n lekker braai.</p>
+      
+      <p>📅 <strong>Datum:</strong> Saterdag, 10 Oktober 2026<br>
+      🕙 <strong>Tyd:</strong> 10:00 die oggend<br>
+      📍 <strong>Plek:</strong> Lensley Plaas (Koördinate: 26°36'36.3"S 27°13'11.0"E)</p>
+      
+      <div class="secret-banner">
+        <p><strong>💬 Pssst! Hierdie is 'n streng geheim... 🤫</strong><br>
+        Hierdie hele dag is 'n verrassing vir Righardt en hy mag absoluut niks hiervan weet nie! As jy hierdie uitnodiging ontvang het, is jy deel van die klein groepie wat moet help om die geheim veilig te hou. Moenie enige leidrade gee, iets op sosiale media plaas of per ongeluk iets verklap nie – ons wil hê die verrassing moet perfek wees wanneer hy op die plaas aankom! 🎁🔥</p>
+      </div>
+
+      <p>Jy hoef net jouself en 'n goeie gees saam te bring. Die belangrikste is dat ons almal daar is om vir Righardt 'n onvergeetlike verjaardag saam met sy mense te gee. 🚜😄</p>
+      
+      <p>Laat weet ons asseblief RSVP voor <strong>28 September 2026</strong> sodat ons alles betyds kan finaliseer en beplan.</p>
+
+      <p style="text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 30px;">
+        *Dubbel-klik op die woord <span id="secretTrigger">“Party-Vibes”</span> vir 'n geheime boodskappie...🤫
+      </p>
+
+      <div id="secretMessage">
+        <p style="margin: 0 0 8px 0;">Geen fancyklere nodig nie, trek net jou gemaklikste t-hemde en kortbroek aan.</p>
+        <p style="margin: 0;">En onthou: geen spoiler alerts aan Righardt nie!</p>
+      </div>
+    </div>
+
+    <!-- Map Card -->
+    <div class="card">
+      <h2>📍 Hoe kom ek daar?</h2>
+      <p style="text-align: center; margin-bottom: 5px;">Bestemming: Lensley Plaas</p>
+      <p style="text-align: center; margin-top: 0; font-size: 14px; color: var(--text-muted);">GPS: <strong>26°36'36.3"S 27°13'11.0"E</strong></p>
+      
+      <iframe src="https://www.google.com/maps?q=26.610083,%2027.219722&hl=af&z=14&output=embed" loading="lazy"></iframe>
+      
+      <p style="text-align: center; margin-top: 20px;">
+        <a href="https://maps.google.com/?q=26.610083,27.219722" target="_blank" style="color: var(--gold-primary); font-size: 14px; text-decoration: none; font-weight: 600;">
+          Maak oop in Google Maps →
+        </a>
+      </p>
+    </div>
+
+    <!-- RSVP Card -->
+<div class="card">
+  <h2 style="text-align: center;">✅ RSVP Hier</h2>
+
+  <p style="text-align: center;">
+    Laat weet my asseblief of jy kan kom deur die vorm hieronder in te vul.
+  </p>
+
+  <p style="text-align: center;">
+    <strong>Let wel:</strong><br>
+    🥩 Bring asseblief jou eie vleis, koeldrank en enige snacks saam.<br>
+    🍻 Minimum drank sal toegelaat word – kom kuier verantwoordelik en geniet die dag saam.
+  </p>
+
+  <div class="btn-container">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPodnF4MSQrwoK38ThfA_0v-i9yKuO-9pCeGeGP04VxT01ig/viewform?usp=dialog" target="_blank" style="text-decoration: none;">
+      <button>✅ RSVP Nou</button>
+    </a>
+  </div>
+</div>
+
+    <!-- Contact Card -->
+<div class="card">
+  <h2 style="text-align: center;">📞 Onseker of vrae? Kontak my!</h2>
+
+  <p style="text-align: center;">
+    As jy onseker is of enige vrae het oor die surprise kuier,
+    moet asseblief nie huiwer om my te kontak nie.
+  </p>
+
+  <p style="text-align: center;">
+    Klik net op die <strong>WhatsApp</strong>-knoppie hieronder en ek help graag!
+  </p>
+
+  <div class="btn-container">
+    <a href="https://wa.me/27608935144" target="_blank" style="text-decoration: none;">
+      <button class="btn-whatsapp">📲 WhatsApp My</button>
+    </a>
+  </div>
+</div>
+
+    <!-- Gallery Card -->
+    <div class="card">
+      <h2>🔥 Vibes Preview</h2>
+      <p style="text-align: center;">Net 'n voorsmakie van die tipe vibes wat jou wag! Bring die gees saam!</p>
+      
+      <div class="gallery-grid">
+        <img src="a1.jpg" alt="Vibe 1" loading="lazy"/>
+        <img src="a2.jpeg" alt="Vibe 2" loading="lazy"/>
+        <img src="a3.jpeg" alt="Vibe 3" loading="lazy"/>
+        <img src="a4.jpg" alt="Vibe 4" loading="lazy"/>
+        <img src="a5.jpg" alt="Vibe 5" loading="lazy"/>
+        <img src="a6.jpg" alt="Vibe 6" loading="lazy"/>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Tihard Strydom 😁 &mdash; Surprise kuier vir Righardt 🎂</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const music = document.getElementById("bgmusic");
+    if (music) {
+      music.volume = 0.5;
+    }
+
+    // Speel musiek outomaties sodra die bladsy laai of aktief raak
+    window.addEventListener('load', () => {
+      if (music) {
+        music.play().catch(() => {
+          // As die blaaier autoplay blokkeer, speel sodra die gebruiker iewers klik
+          document.body.addEventListener('click', () => {
+            music.play();
+          }, { once: true });
+        });
+      }
+    });
+
+    function personalize() {
+      const name = document.getElementById("nameSelect").value;
+      const heading = document.getElementById("mainHeading");
+
+      let message = "";
+      let subtext = "";
+
+      switch (name) {
+        case "Tihard":
+          message = "Haai Tihard!";
+          subtext = "Jy's mos die ou wat alles reël, so sorg net dat die wa nie in die sloot trap nie!";
+          break;
+        case "Armand":
+          message = "Lekker Armand!";
+          subtext = "Jy moet net seker maak jy hou jou mond hieroor, geen spoilers nie!";
+          break;
+        case "Hendré":
+          message = "Wat sê jy, Hendré?";
+          subtext = "Trek 'n kortbroek aan, ons gaan 'n paar vuurhoutjies aan die brand steek.";
+          break;
+        case "Germari":
+          message = "Hallo Germari!";
+          subtext = "Ons kan beslis nie sonder jou geselskap en gasvryheid klaar kom nie.";
+          break;
+        case "Elaine":
+          message = "Hey Elaine!";
+          subtext = "Bring jou lekker energie saam, dit gaan 'n lekker dag wees.";
+          break;
+        case "Wencke":
+          message = "Lekker Wencke!";
+          subtext = "Sien uit daarna om saam te kuier en net bietjie hande uit die hare te hê.";
+          break;
+        case "Franco":
+          message = "Wat sê jy, Franco?";
+          subtext = "Los die boeke vir een dag, ons gaan 'n Kuier-naweek vat.";
+          break;
+        case "Stef":
+          message = "Yess, Stef!";
+          subtext = "Hou die kole warm en die geheim veilig; sien jou op die plaas.";
+          break;
+        case "Marlu":
+          message = "Lekker man, Marlu!";
+          subtext = "Wees deel en geniet dit, vir 'n suksesvolle verrassing!";
+          break;
+		  case "Lanike":
+          message = "Heyy, Lanike!";
+          subtext = "Dankie vir jou hulp om die 'n sukses te maak, gaan 'n lekker dag wees!";
+          break;
+        default:
+          message = "Righardt se Verrassingskuier";
+          subtext = "Persoonlike Uitnodiging • Slegs vir vriende";
+      }
+
+      heading.innerHTML = `${message}<br><small style="font-size:15px;color:var(--gold-primary);display:block;margin-top:10px;font-weight:normal;letter-spacing:0.02em;">${subtext}</small>`;
+    }
+
+    const trigger = document.getElementById("secretTrigger");
+    const secretMsg = document.getElementById("secretMessage");
+
+    if (trigger && secretMsg) {
+      trigger.addEventListener("dblclick", function () {
+        if (secretMsg.style.display === "none" || secretMsg.style.display === "") {
+          secretMsg.style.display = "block";
+        } else {
+          secretMsg.style.display = "none";
+        }
+      });
+    }
+
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("October 10, 2026 10:00:00").getTime();
+
+    function updateCountdown() {
+      if (!countdownElement) return;
+      
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "<strong>Die groot dag is hier! Kuier lekker!</strong>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        <div><strong>${days}</strong><span>dae</span></div>
+        <div><strong>${hours}</strong><span>ure</span></div>
+        <div><strong>${minutes}</strong><span>min</span></div>
+        <div><strong>${seconds}</strong><span>sek</span></div>
+      `;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
